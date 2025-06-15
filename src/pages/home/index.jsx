@@ -19,8 +19,8 @@ export const HomePage = () => {
               <h2 className="text-xl font-semibold md:text-5xl"> Universitas Negeri Jakarta</h2>
             </div>
             <p className="mt-4 text-lg">
-              Bergabunglah dengan kami untuk bersama-sama bertahan hitup di rantau
-              <br />
+              Kami adalah rumah bagi mahasiswa Minangkabau di UNJ. Bersama kita merantau, bersama
+              pula kita melangkah maju.
             </p>
           </div>
         </div>
