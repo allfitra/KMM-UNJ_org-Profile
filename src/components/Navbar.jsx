@@ -2,20 +2,23 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { themes } from '@/utils/theme';
 import { useTheme } from '@/utils/themeContext';
-import { LogoKMM, LogoKMMcircle, LogoKMMnbg } from '@/assets/Content';
+import { LogoKMMcircle } from '@/assets/Content';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
 export const Navbar = () => {
-  const { theme, changeTheme } = useTheme();
   const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
+  const { theme, changeTheme } = useTheme();
+
   const [navigation, setNavigation] = useState([
     { name: 'Dashboard', href: '/' },
     { name: 'Stuktur Organisasi', href: '/organisasi' },
     { name: 'Kegiatan', href: '/kegiatan' },
-    { name: 'Contact', href: '/kontak' },
+    { name: 'Kontak', href: '/kontak' },
   ]);
 
   useEffect(() => {
@@ -53,8 +56,12 @@ const WebNavbar = ({ navigation, location, theme }) => {
   return (
     <nav
       className={classNames(
-        'container fixed top-0 z-20 hidden h-[95px] w-full max-w-none px-6 pb-6 transition duration-200 lg:block',
-        scrolled ? 'bg-[#01663f] text-white shadow-md' : 'bg-transparent'
+        'container fixed top-0 z-20 hidden h-[95px] w-full max-w-none px-6 pb-6 text-white transition duration-200 lg:block',
+        scrolled && location.pathname === '/'
+          ? 'bg-[#01663f] shadow-md'
+          : location.pathname !== '/'
+          ? 'bg-[#01663f] shadow-md'
+          : 'bg-transparent'
       )}
     >
       <div className="flex justify-center">
@@ -81,7 +88,7 @@ const WebNavbar = ({ navigation, location, theme }) => {
                     to={item.href}
                     className={classNames(
                       item.current && 'font-bold',
-                      'rounded-md px-2 py-2 font-heading text-base'
+                      'rounded-md px-2 py-2 font-heading text-sm'
                     )}
                     aria-current={item.current ? 'page' : undefined}
                   >
@@ -93,9 +100,13 @@ const WebNavbar = ({ navigation, location, theme }) => {
           </div>
         </div>
       </div>
-
-      <div className={classNames('flex justify-center', scrolled ? '' : 'hidden')}>
-        <hr className="mt-[13px] w-[90%] border-t-2 border-black" />
+      <div
+        className={classNames(
+          'flex justify-center',
+          scrolled && location.pathname === '/' ? '' : location.pathname !== '/' ? '' : 'hidden'
+        )}
+      >
+        <hr className="mt-[13px] w-[90%] border-t-2 border-[#fbd600]" />
       </div>
     </nav>
   );

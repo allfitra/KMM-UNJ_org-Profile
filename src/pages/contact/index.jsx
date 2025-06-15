@@ -7,8 +7,9 @@ export const ContactPage = () => {
     <MainLayout title="Minang di Rantau">
       <div className="container mx-auto px-2">
         <h1 className="mb-6 text-center text-4xl font-bold">Contact Us</h1>
+        <h1 className="mb-6 text-center text-4xl font-bold">Masih dalam Pembangunan</h1>
         <p className="text-center text-lg">
-          If you have any questions or need more information, feel free to reach out to us.
+          Silahkan kembali lagi nanti untuk melihat perkembangan terbaru dari halaman ini.
         </p>
       </div>
     </MainLayout>
