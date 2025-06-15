@@ -13,9 +13,9 @@ export const Navbar = () => {
   const location = useLocation();
   const [navigation, setNavigation] = useState([
     { name: 'Dashboard', href: '/' },
-    { name: 'Stuktur Organisasi', href: '/education' },
-    { name: 'Kegiatan', href: '/experience' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Stuktur Organisasi', href: '/organisasi' },
+    { name: 'Kegiatan', href: '/kegiatan' },
+    { name: 'Contact', href: '/kontak' },
   ]);
 
   useEffect(() => {
@@ -59,19 +59,19 @@ const WebNavbar = ({ navigation, location, theme }) => {
     >
       <div className="flex justify-center">
         <div className="relative flex h-20 w-full max-w-7xl items-center justify-between md:px-14">
-          <div className="flex">
-            <Link to="/">
+          <Link to="/">
+            <div className="flex">
               <img
                 className="ml-0 mt-4 h-[60px] w-[60px] xl:ml-2"
                 src={LogoKMMcircle}
                 alt="KMM Logos"
               />
-            </Link>
-            <div className="ml-4 mt-5">
-              <h2 className="text-lg">Keluarga Mahasiswa Minang</h2>
-              <h3 className="text-xs">Universitas Negeri Jakarta</h3>
+              <div className="ml-4 mt-5">
+                <h2 className="text-lg">Keluarga Mahasiswa Minang</h2>
+                <h3 className="text-xs">Universitas Negeri Jakarta</h3>
+              </div>
             </div>
-          </div>
+          </Link>
 
           <div className="flex flex-shrink-0 items-center">
             <div className="mt-5 flex space-x-3">
@@ -94,7 +94,7 @@ const WebNavbar = ({ navigation, location, theme }) => {
         </div>
       </div>
 
-      <div className="flex justify-center">
+      <div className={classNames('flex justify-center', scrolled ? '' : 'hidden')}>
         <hr className="mt-[13px] w-[90%] border-t-2 border-black" />
       </div>
     </nav>
