@@ -1,12 +1,33 @@
-# React + Vite
+# KMM Universitas Negeri Jakarta - Organization Profile
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About
 
-Currently, two official plugins are available:
+Keluarga Mahasiswa Minang (KMM) Universitas Negeri Jakarta (UNJ) is a student organization that brings together Minangkabau students at UNJ. KMM UNJ serves as a platform for cultural exchange, mutual support, and personal development, aiming to preserve and promote Minangkabau values and traditions within the university environment. Through various programs and activities, KMM UNJ encourages its members to strengthen their sense of community, develop leadership skills, and contribute positively to both the campus and the broader society.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## Expanding the ESLint configuration
+1. Clone the repository:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+$ git clone https://github.com/allfitra/KMM-UNJ_org-Profile.git
+```
+
+2. Install dependencies:
+
+```
+$ npm install
+```
+
+3. Run the development server:
+
+```
+$ npm run dev
+```
+
+4. Explore, contribute, and enjoy!
+
+## Support and Contact
+
+For any issues or queries, feel free to reach out to us on [My social media]().
+
+# Thank You
