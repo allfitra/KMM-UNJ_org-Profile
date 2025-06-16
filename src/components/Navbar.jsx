@@ -56,7 +56,7 @@ const WebNavbar = ({ navigation, location, theme }) => {
   return (
     <nav
       className={classNames(
-        'container fixed top-0 z-20 hidden h-[95px] w-full max-w-none px-6 pb-6 text-white transition duration-200 lg:block',
+        'container fixed top-0 z-20 hidden h-[95px] w-full max-w-none px-6 pb-6 text-white transition duration-200 md:block',
         scrolled && location.pathname === '/'
           ? 'bg-[#01663f] shadow-md'
           : location.pathname !== '/'
