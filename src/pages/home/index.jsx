@@ -1,6 +1,6 @@
 import React from 'react';
 import { MainLayout } from '@/components/Layouts';
-import { PlazaUNJ } from '@/assets/images/ImagesHome'; // pastikan ini adalah URL atau `require`/`import`
+import { PlazaUNJ } from '@/assets/images/ImagesHome';
 
 export const HomePage = () => {
   return (
