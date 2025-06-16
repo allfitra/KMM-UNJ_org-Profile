@@ -19,7 +19,7 @@ export const MainLayout = ({ title, children }) => {
         className={`${isHomePage ? '' : 'pt-36'} `}
       >
         <Navbar />
-        <div className="mx-auto flex min-h-[90vh] flex-col overflow-hidden xl:overflow-visible">
+        <div className="mx-auto flex min-h-[70vh] flex-col overflow-hidden xl:overflow-visible">
           <div className={`${isHomePage ? '' : 'px-10'} `}>{children}</div>
         </div>
         <Footer />

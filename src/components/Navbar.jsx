@@ -87,7 +87,7 @@ const WebNavbar = ({ navigation, location, theme }) => {
                   <Link
                     to={item.href}
                     className={classNames(
-                      item.current && 'font-bold',
+                      item.current && 'font-bold text-[#fbd600]',
                       'rounded-md px-2 py-2 font-heading text-sm'
                     )}
                     aria-current={item.current ? 'page' : undefined}

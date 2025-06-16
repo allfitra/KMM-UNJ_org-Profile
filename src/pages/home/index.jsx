@@ -28,10 +28,31 @@ export const HomePage = () => {
       <div className="bg-[#01663f] py-24 text-white">
         <h1 className="mb-6 text-center text-4xl font-bold">On Progress</h1>
       </div>
+      <ShapeSection />
       <div className="py-24">
         <h1 className="mb-6 text-center text-4xl font-bold">On Progress</h1>
       </div>
-      =
     </MainLayout>
+  );
+};
+
+const ShapeSection = () => {
+  return (
+    <div className="relative -mt-0.5 h-16 md:mt-0">
+      <svg
+        className="absolute left-0 top-0 h-16 w-[50%]"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <polygon fill="#01663f" points="0,0 100,0 0,100" />
+      </svg>
+      <svg
+        className="absolute right-0 top-0 h-16 w-[50%]"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <polygon fill="#01663f" points="100,0 0,0 100,100" />
+      </svg>
+    </div>
   );
 };
