@@ -67,13 +67,13 @@ const sosmedList = [
     name: 'Instagram',
     title: '@kmm_unj',
     href: 'https://www.instagram.com/kmm_unj/',
-    icon: <Music2Icon className="mt-1 h-5 w-5" />,
+    icon: <InstagramIcon className="mt-1 h-5 w-5" />,
   },
   {
     name: 'TikTok',
     title: '@kmm_unj',
     href: 'https://www.tiktok.com/@kmm_unj',
-    icon: <InstagramIcon className="mt-1 h-5 w-5" />,
+    icon: <Music2Icon className="mt-1 h-5 w-5" />,
   },
   {
     name: 'Email',
