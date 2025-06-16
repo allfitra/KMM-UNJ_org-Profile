@@ -14,7 +14,7 @@ export const Head = ({ title, description }) => {
       />
       <meta property="og:title" content="KMahasiswa Minangkabau UNJ" />
       <meta property="og:url" content="https://kmm-unj.vercel.app/" />
-      <meta property="og:image" content="https://kmm-unj.vercel.app/preview.jpg" />
+      <meta property="og:image" content="https://kmm-unj.vercel.app/preview.png" />
     </Helmet>
   );
 };
