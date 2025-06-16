@@ -16,7 +16,7 @@ export const MainLayout = ({ title, children }) => {
 
       <div
         style={theme === 'dark' ? themes.dark : themes.light}
-        className={`${isHomePage ? '' : 'pt-10 md:pt-36'} `}
+        className={`${isHomePage ? '' : 'pt-36'} `}
       >
         <Navbar />
         <div className="mx-auto flex min-h-[90vh] flex-col overflow-hidden xl:overflow-visible">
