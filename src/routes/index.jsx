@@ -5,6 +5,7 @@ import { NotFoundPage } from '@/pages/not-found';
 import { OrganizationPage } from '@/pages/organization';
 import { ActivityPage } from '@/pages/activity';
 import { ContactPage } from '@/pages/contact';
+import { ActivityAdminPage } from '@/pages/Admin/activity';
 
 export const AppRoutes = () => {
   return (
@@ -14,6 +15,10 @@ export const AppRoutes = () => {
       <Route path="/kegiatan" element={<ActivityPage />} />
       <Route path="/kontak" element={<ContactPage />} />
 
+      {/* Admin routes */}
+      <Route path="/admin001" element={<ActivityAdminPage />} />
+
+      {/* Catch-all route for 404 Not Found */}
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

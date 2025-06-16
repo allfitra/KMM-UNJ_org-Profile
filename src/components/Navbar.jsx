@@ -177,7 +177,7 @@ const MobileNavbar = ({ navigation, location, theme }) => {
       {/* Dropdown menu */}
       <div
         className={classNames(
-          'ease-in-ou mt-1 w-full overflow-hidden rounded-b-2xl bg-[#01663f] text-center shadow-md transition-all duration-500',
+          'ease-in-ou mt-0.5 w-full overflow-hidden rounded-b-2xl bg-[#01663f] text-center shadow-md transition-all duration-500',
           isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         )}
       >
