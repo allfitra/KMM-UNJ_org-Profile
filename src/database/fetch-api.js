@@ -2,10 +2,10 @@
 import { db } from './firebase';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 
-export async function postMessage(itemData) {
+export async function postActivity(activityData) {
   try {
-    const collectionRef = collection(db, 'message');
-    const docRef = await addDoc(collectionRef, itemData);
+    const collectionRef = collection(db, 'activities');
+    const docRef = await addDoc(collectionRef, activityData);
 
     return docRef.id;
   } catch (e) {
@@ -14,12 +14,12 @@ export async function postMessage(itemData) {
   }
 }
 
-export async function getMessages() {
+export async function getActivities() {
   try {
-    const collectionRef = collection(db, 'message');
+    const collectionRef = collection(db, 'activities');
     const snapshot = await getDocs(collectionRef);
-    const messages = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-    return messages;
+    const activities = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    return activities;
   } catch (e) {
     console.error('Error fetching documents: ', e);
     throw e; // Re-throw the error so calling code can handle it

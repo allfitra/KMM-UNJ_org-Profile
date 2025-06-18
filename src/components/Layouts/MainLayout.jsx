@@ -16,10 +16,10 @@ export const MainLayout = ({ title, children }) => {
 
       <div
         style={theme === 'dark' ? themes.dark : themes.light}
-        className={`${isHomePage ? '' : 'pt-36'} `}
+        className={`${isHomePage ? '' : 'pt-32'} `}
       >
         <Navbar />
-        <div className="mx-auto flex min-h-[70vh] flex-col overflow-hidden xl:overflow-visible">
+        <div className="mx-auto flex min-h-[75vh] flex-col overflow-hidden xl:overflow-visible">
           <div className={`${isHomePage ? '' : 'px-10'} `}>{children}</div>
         </div>
         <Footer />
