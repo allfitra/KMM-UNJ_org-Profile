@@ -1,6 +1,18 @@
-// importing db firebase
 import { db } from './firebase';
-import { collection, addDoc, getDocs } from 'firebase/firestore';
+import { collection, addDoc, getDocs, deleteDoc, doc } from 'firebase/firestore';
+
+export async function postImage(imageFile) {
+  try {
+    const storageRef = db.storage().ref();
+    const imageRef = storageRef.child(`images/${imageFile.name}`);
+    await imageRef.put(imageFile);
+    const imageUrl = await imageRef.getDownloadURL();
+    return imageUrl;
+  } catch (e) {
+    console.error('Error uploading image: ', e);
+    throw e;
+  }
+}
 
 export async function postActivity(activityData) {
   try {
@@ -10,7 +22,7 @@ export async function postActivity(activityData) {
     return docRef.id;
   } catch (e) {
     console.error('Error adding document: ', e);
-    throw e; // Re-throw the error so calling code can handle it
+    throw e;
   }
 }
 
@@ -22,6 +34,18 @@ export async function getActivities() {
     return activities;
   } catch (e) {
     console.error('Error fetching documents: ', e);
-    throw e; // Re-throw the error so calling code can handle it
+    throw e;
   }
 }
+
+export async function deleteActivity(activityId) {
+  try {
+    const docRef = doc(db, 'activities', activityId);
+    await deleteDoc(docRef);
+    return true;
+  } catch (e) {
+    console.error('Error deleting document:', e);
+    throw e;
+  }
+}
+
