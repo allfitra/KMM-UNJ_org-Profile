@@ -1,16 +1,31 @@
 import { db } from './firebase';
 import { collection, addDoc, getDocs, deleteDoc, doc } from 'firebase/firestore';
 
-export async function postImage(imageFile) {
+export async function uploadImage(file) {
+  if (!file) {
+    throw new Error('No file provided for upload');
+  }
+
+  const formData = new FormData();
+  formData.append('file', file);
+  formData.append('upload_preset', 'kmm-unj');
+
   try {
-    const storageRef = db.storage().ref();
-    const imageRef = storageRef.child(`images/${imageFile.name}`);
-    await imageRef.put(imageFile);
-    const imageUrl = await imageRef.getDownloadURL();
-    return imageUrl;
-  } catch (e) {
-    console.error('Error uploading image: ', e);
-    throw e;
+    const res = await fetch('https://api.cloudinary.com/v1_1/dcfdoyxp6/image/upload', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!res.ok) {
+      const errorText = await res.text();
+      throw new Error(`Failed to upload image. Server says: ${errorText}`);
+    }
+
+    const data = await res.json();
+    return data.secure_url;
+  } catch (error) {
+    console.error('❌ Error uploading image to Cloudinary:', error);
+    throw error;
   }
 }
 
@@ -48,4 +63,3 @@ export async function deleteActivity(activityId) {
     throw e;
   }
 }
-

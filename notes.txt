@@ -1,0 +1,5 @@
+
+Tools yang digunakan untuk penyimpanan : LOGIN PAKAI AKUN KMM (kmminangunj@gmail.com)
+* Firebase      (Penyimpanan data)
+* Cloudinary    (Penyimpanan Image)
+* Vercel        (Hosting)

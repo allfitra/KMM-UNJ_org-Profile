@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
 
 import { MainLayout } from '@/components/Layouts';
-import { FotoBersama } from '@/assets/images/ImagesContact';
 import { getActivities } from '@/database/fetch-api';
 import formatDate from '@/utils/formatdate';
+import { LoadingCard } from '@/components/other/Loadingcard';
+import { LogoKMM } from '@/assets/Content';
 
 export const ActivityPage = () => {
+  const [loading, setLoading] = useState(true);
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-      const getData = await getActivities();
-      const sorted = getData.sort((a, b) => new Date(b.date) - new Date(a.date));
-      setActivities(sorted);
+        const getData = await getActivities();
+        const dataSorted = getData.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setActivities(dataSorted);
+        setLoading(false);
         console.log('Fetched activities:', getData);
-        setActivities(getData);
       } catch (error) {
         console.error('Error fetching activities:', error);
       }
@@ -31,23 +33,33 @@ export const ActivityPage = () => {
           <h1 className="text-center text-4xl font-bold">Kegiatan Kami</h1>
         </div>
         <div className="container mx-auto mt-6 grid grid-cols-1 justify-between gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {activities.map((activity, index) => (
-            <Card
-              key={index}
-              data = {activity}
-            />
-          ))}
+          {loading ? (
+            Array.from({ length: 3 }).map((_, index) => <LoadingCard key={index} />)
+          ) : activities.length === 0 ? (
+            <div className="flex items-center justify-center">
+              <p className="text-lg font-semibold text-gray-500">
+                Tidak ada kegiatan yang tersedia.
+              </p>
+            </div>
+          ) : (
+            activities.map((activity, index) => <Card key={index} data={activity} />)
+          )}
         </div>
       </div>
     </MainLayout>
   );
 };
 
-const Card = ({ data}) => {
+const Card = ({ data }) => {
   return (
     <div className="max-w-sm rounded-lg border border-gray-200 bg-[#01663f] shadow-sm">
       <a href="#">
-        <img src={data.img} alt="Foto Kegiatan" className="h-48 w-full rounded-t-lg object-cover" />
+        <img
+          src={data.img || LogoKMM}
+          alt="Foto Kegiatan"
+          className="h-48 w-full rounded-t-lg object-center"
+        />
+        {/* className="h-48 w-full rounded-t-lg object-cover object-center" */}
       </a>
       <div className="px-5 py-3">
         <p className="text-sm font-normal text-white">{formatDate(data.date)}</p>

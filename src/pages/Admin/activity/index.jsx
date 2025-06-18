@@ -34,6 +34,9 @@ export const ActivityAdminPage = () => {
       return;
     }
 
+    // Simpan foto ke Cloudinary atau server lain
+    // const imageUrl = await uploadImage(image);
+
     const activityData = {
       title: formData.get('title'),
       description: formData.get('description'),
