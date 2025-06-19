@@ -3,13 +3,14 @@ import axios from 'axios';
 import { collection, addDoc, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import { cloudinaryConfig } from './cloudinary-config';
 
-
 const CLOUDINARY_API_URL = cloudinaryConfig.CLOUDINARY_API_URL;
 const CLOUDINARY_CLOUD_NAME = cloudinaryConfig.CLOUDINARY_CLOUD_NAME;
 const CLOUDINARY_UPLOAD_PRESET = cloudinaryConfig.CLOUDINARY_UPLOAD_PRESET;
 const CLOUDINARY_UPLOAD_FOLDER = cloudinaryConfig.CLOUDINARY_UPLOAD_FOLDER;
 
 const CLOUDINARY_UPLOAD_URL = `${CLOUDINARY_API_URL}${CLOUDINARY_CLOUD_NAME}/image/upload`;
+
+console.log(`CLOUDINARY_UPLOAD_URL: ${CLOUDINARY_UPLOAD_URL}`);
 
 /**
  * Upload a single image to Cloudinary using Axios.
@@ -28,24 +29,19 @@ export async function uploadImage(file) {
   formData.append('folder', CLOUDINARY_UPLOAD_FOLDER);
 
   try {
-    const response = await axios.post(
-      CLOUDINARY_UPLOAD_URL,
-      formData,
-      {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        onUploadProgress: (progressEvent) => {
-          const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-          console.log(`Upload progress: ${percent}%`);
-        },
-      }
-    );
+    const response = await axios.post(CLOUDINARY_UPLOAD_URL, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      onUploadProgress: (progressEvent) => {
+        const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+        console.log(`Upload progress: ${percent}%`);
+      },
+    });
 
     const secureUrl = response.data.secure_url;
     return secureUrl;
   } catch (error) {
-    
     throw new Error('Upload image gagal. Silakan coba lagi.');
   }
 }
