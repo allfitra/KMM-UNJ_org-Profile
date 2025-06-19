@@ -183,7 +183,7 @@ const ActivityList = ({ activities, onDelete }) => {
                     <img
                       src={activity.imageUrl || LogoKMM}
                       alt={activity.title}
-                      className="h-12 w-18 rounded object-cover object-center"
+                      className="w-18 h-12 rounded object-cover object-center"
                     />
                   </td>
                   <td className="px-4 py-2">{activity.title}</td>
@@ -211,12 +211,12 @@ const ActivityList = ({ activities, onDelete }) => {
 const Loading = () => (
   <div
     id="overlay"
-    class="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
+    className="fixed left-0 top-0 z-50 flex h-full w-full items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
   >
-    <div role="status" class="absolute left-1/2 top-2/4 -translate-x-1/2 -translate-y-1/2">
+    <div role="status" className="absolute left-1/2 top-2/4 -translate-x-1/2 -translate-y-1/2">
       <svg
         aria-hidden="true"
-        class="h-8 w-8 animate-spin fill-blue-600 text-gray-200 dark:text-gray-600"
+        className="h-8 w-8 animate-spin fill-blue-600 text-gray-200 dark:text-gray-600"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -230,7 +230,7 @@ const Loading = () => (
           fill="currentFill"
         />
       </svg>
-      <span class="sr-only">Loading...</span>
+      <span className="sr-only">Loading...</span>
     </div>
   </div>
 );
