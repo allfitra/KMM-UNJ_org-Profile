@@ -12,7 +12,7 @@ export const Footer = () => {
             <img className="h-[100px] w-[100px]" src={LogoKMM} alt="KMM Logos" />
           </div>
           <p className="max-w-[350px] text-sm">
-            KMM (Keluarga Mahasiswa Minang) UNJ adalah organisasi kemahasiswaan yang berfokus pada
+            KMM (Keluarga Mahasiswa Minangkabau) UNJ adalah organisasi kemahasiswaan yang berfokus pada
             pengembangan budaya, sosial, dan akademik mahasiswa Minangkabau di Universitas Negeri
             Jakarta.
           </p>

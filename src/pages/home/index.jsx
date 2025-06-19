@@ -15,7 +15,7 @@ export const HomePage = () => {
           <div className="-mt-[80px] flex flex-col items-center justify-center md:-mt-[50px]">
             <h1 className="text-base font-bold md:text-3xl">Selamat Datang di Website</h1>
             <div className="mt-4 flex flex-col items-center">
-              <h2 className="text-xl font-semibold md:text-5xl"> Komunitas Mahasiswa Minang</h2>
+              <h2 className="text-xl font-semibold md:text-5xl"> Keluarga Mahasiswa Minangkabau</h2>
               <h2 className="text-xl font-semibold md:text-5xl"> Universitas Negeri Jakarta</h2>
             </div>
             <p className="mt-4 text-lg">
