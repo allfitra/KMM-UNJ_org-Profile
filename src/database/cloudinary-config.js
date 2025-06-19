@@ -1,6 +1,6 @@
 export const cloudinaryConfig = {
-    CLOUDINARY_API_URL: 'https://api.cloudinary.com/v1_1/',
-    CLOUDINARY_CLOUD_NAME: 'dcfdoyxp6',
-    CLOUDINARY_UPLOAD_PRESET: 'kmm-unj',
-    CLOUDINARY_UPLOAD_FOLDER: 'activities',
-};  
+  CLOUDINARY_API_URL: process.env.CLOUDINARY_API_URL,
+  CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
+  CLOUDINARY_UPLOAD_PRESET: process.env.CLOUDINARY_UPLOAD_PRESET,
+  CLOUDINARY_UPLOAD_FOLDER: process.env.CLOUDINARY_UPLOAD_FOLDER,
+};
