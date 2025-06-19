@@ -38,7 +38,7 @@ export const ActivityPage = () => {
           ) : activities.length === 0 ? (
             <div className="flex items-center justify-center">
               <p className="text-lg font-semibold text-gray-500">
-                Tidak ada kegiatan yang tersedia.
+                Belum ada kegiatan yang ditampilkan.
               </p>
             </div>
           ) : (
@@ -52,14 +52,14 @@ export const ActivityPage = () => {
 
 const Card = ({ data }) => {
   return (
-    <div className="max-w-sm rounded-lg border border-gray-200 bg-[#01663f] shadow-sm">
+    <div className="max-w-sm rounded-lg border border-gray-200 bg-[#01663f] shadow-sm" >
       <a href="#">
         <img
-          src={data.img || LogoKMM}
+          src={data.imageUrl || LogoKMM}
           alt="Foto Kegiatan"
-          className="h-48 w-full rounded-t-lg object-center"
-        />
-        {/* className="h-48 w-full rounded-t-lg object-cover object-center" */}
+          className="h-48 w-full rounded-t-lg object-cover object-center"
+          />
+          {/* className="h-48 w-full rounded-t-lg object-center" */}
       </a>
       <div className="px-5 py-3">
         <p className="text-sm font-normal text-white">{formatDate(data.date)}</p>

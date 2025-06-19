@@ -1,31 +1,52 @@
 import { db } from './firebase';
+import axios from 'axios';
 import { collection, addDoc, getDocs, deleteDoc, doc } from 'firebase/firestore';
+import { cloudinaryConfig } from './cloudinary-config';
+
+
+const CLOUDINARY_API_URL = cloudinaryConfig.CLOUDINARY_API_URL;
+const CLOUDINARY_CLOUD_NAME = cloudinaryConfig.CLOUDINARY_CLOUD_NAME;
+const CLOUDINARY_UPLOAD_PRESET = cloudinaryConfig.CLOUDINARY_UPLOAD_PRESET;
+const CLOUDINARY_UPLOAD_FOLDER = cloudinaryConfig.CLOUDINARY_UPLOAD_FOLDER;
+
+const CLOUDINARY_UPLOAD_URL = `${CLOUDINARY_API_URL}${CLOUDINARY_CLOUD_NAME}/image/upload`;
+
+/**
+ * Upload a single image to Cloudinary using Axios.
+ * @param {File} file
+ * @returns {Promise<string>}
+ */
 
 export async function uploadImage(file) {
-  if (!file) {
-    throw new Error('No file provided for upload');
+  if (!(file instanceof File)) {
+    throw new Error('Invalid file input. Please provide a valid File object.');
   }
 
   const formData = new FormData();
   formData.append('file', file);
-  formData.append('upload_preset', 'kmm-unj');
+  formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+  formData.append('folder', CLOUDINARY_UPLOAD_FOLDER);
 
   try {
-    const res = await fetch('https://api.cloudinary.com/v1_1/dcfdoyxp6/image/upload', {
-      method: 'POST',
-      body: formData,
-    });
+    const response = await axios.post(
+      CLOUDINARY_UPLOAD_URL,
+      formData,
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+        onUploadProgress: (progressEvent) => {
+          const percent = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+          console.log(`Upload progress: ${percent}%`);
+        },
+      }
+    );
 
-    if (!res.ok) {
-      const errorText = await res.text();
-      throw new Error(`Failed to upload image. Server says: ${errorText}`);
-    }
-
-    const data = await res.json();
-    return data.secure_url;
+    const secureUrl = response.data.secure_url;
+    return secureUrl;
   } catch (error) {
-    console.error('❌ Error uploading image to Cloudinary:', error);
-    throw error;
+    
+    throw new Error('Upload image gagal. Silakan coba lagi.');
   }
 }
 
