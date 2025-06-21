@@ -118,7 +118,7 @@ const MobileNavbar = ({ navigation, location, theme }) => {
   return (
     <nav
       className={classNames(
-        'container fixed top-0 z-20 block h-[95px] w-full max-w-none px-8 pb-6 text-white transition duration-200 md:hidden',
+        'container fixed top-0 z-50 block h-[95px] w-full max-w-none px-8 pb-6 text-white transition duration-200 md:hidden',
         'bg-[#01663f] shadow-md'
       )}
     >
