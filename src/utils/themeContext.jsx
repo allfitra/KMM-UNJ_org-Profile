@@ -7,12 +7,13 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
-  localStorage.setItem('theme', 'light'); // Default to light theme if not set
+  const [theme, setTheme] = useState('light');
+  // const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  // localStorage.setItem('theme', 'light'); // Default to light theme if not set
 
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+  // useEffect(() => {
+  //   localStorage.setItem('theme', theme);
+  // }, [theme]);
 
   const changeTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
