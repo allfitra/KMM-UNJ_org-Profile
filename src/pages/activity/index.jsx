@@ -27,7 +27,7 @@ export const ActivityPage = () => {
   }, []);
 
   return (
-    <MainLayout title="Minang di Rantau">
+    <MainLayout title="Basamo-samo">
       <div className="container mx-auto px-2 pb-12 text-[#01663f]">
         <div>
           <h1 className="text-center text-4xl font-bold">Kegiatan Kami</h1>
@@ -52,20 +52,18 @@ export const ActivityPage = () => {
 
 const Card = ({ data }) => {
   return (
-    <div className="max-w-sm rounded-lg border border-gray-200 bg-[#01663f] shadow-sm" >
+    <div className="max-w-sm rounded-lg border border-gray-200 bg-[#01663f] shadow-sm">
       <a href="#">
         <img
           src={data.imageUrl || LogoKMM}
           alt="Foto Kegiatan"
           className="h-48 w-full rounded-t-lg object-cover object-center"
-          />
-          {/* className="h-48 w-full rounded-t-lg object-center" */}
+        />
+        {/* className="h-48 w-full rounded-t-lg object-center" */}
       </a>
-      <div className="px-5 py-3">
+      <div className="cursor-default px-5 py-3">
         <p className="text-sm font-normal text-white">{formatDate(data.date)}</p>
-        <a href="#">
-          <h5 className="mb-2 text-xl font-bold tracking-tight text-[#fbd600]">{data.title}</h5>
-        </a>
+        <h5 className="mb-2 text-xl font-bold tracking-tight text-[#fbd600]">{data.title}</h5>
         <p className="text-justify text-base font-normal text-white">{data.description}</p>
       </div>
     </div>

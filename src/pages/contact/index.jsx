@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { MainLayout } from '@/components/Layouts';
-import { FotoBersama } from '@/assets/images/ImagesContact';
+import { FotoBersama, FotoMinsoc } from '@/assets/images/ImagesContact';
 
 export const ContactPage = () => {
   return (
-    <MainLayout title="Minang di Rantau">
+    <MainLayout title="Parami Alek">
       <div className="px-4 pb-10 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-6 text-center">
@@ -20,12 +20,8 @@ export const ContactPage = () => {
           {/* Foto Kebersamaan */}
           <div className="grid grid-cols-1 items-start gap-6 md:grid-cols-2">
             {/* Gambar */}
-            <div className="overflow-hidden rounded-2xl shadow-lg md:h-[300px]">
-              <img
-                src={FotoBersama}
-                alt="Deskripsi Gambar"
-                className="h-full w-full object-cover"
-              />
+            <div className="overflow-hidden rounded-2xl shadow-lg md:h-[300px] md:w-[600px]">
+              <img src={FotoMinsoc} alt="Deskripsi Gambar" className="h-full w-full object-cover" />
             </div>
 
             {/* Informasi Kontak */}

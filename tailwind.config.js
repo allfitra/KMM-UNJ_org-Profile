@@ -8,6 +8,24 @@ export default {
         heading: ['Poppins', 'sans-serif'],
         sans: ['Inter', 'sans-serif'],
       },
+      keyframes: {
+        glowBorder: {
+          '0%': {
+            boxShadow: '0 0 0 0 rgba(255, 255, 0, 0.7)',
+            backgroundPosition: '0% 50%',
+          },
+          '50%': {
+            boxShadow: '0 0 6px 6px rgba(255, 255, 0, 0.7)',
+          },
+          '100%': {
+            boxShadow: '0 0 0 0 rgba(255, 255, 0, 0.7)',
+            backgroundPosition: '200% 50%',
+          },
+        },
+      },
+      animation: {
+        glowBorder: 'glowBorder 2s linear infinite',
+      },
       colors: {
         greyDestimate: {
           50: '#E1E1E1',

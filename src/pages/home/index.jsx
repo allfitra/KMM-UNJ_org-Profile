@@ -42,17 +42,16 @@ const IntroduceSection = () => {
   const introduceCards = [
     { title: 'Basamo-samo', icon: '🫂' },
     { title: 'Saraso', icon: '🤝' },
-    { title: 'Gaya Minang', icon: '🏘️' },
-
+    { title: 'Ingek Kampuang', icon: '🏘️' },
     { title: 'Buek Carito', icon: '📚' },
   ];
   return (
     <div className="relative overflow-hidden bg-[#01663f]">
       <div>
-        <div className="pointer-events-none absolute bottom-0 left-0 z-10 w-[350px] opacity-80 md:w-[400px]">
+        <div className="pointer-events-none absolute bottom-0 left-0 z-10 w-[350px] opacity-90 md:w-[400px]">
           <img src={RumahGadangKanan} alt="Rumah Gadang" className="h-auto w-full" />
         </div>
-        <div className="pointer-events-none absolute bottom-0 right-0 z-10 hidden w-[300px] opacity-80 md:block md:w-[400px]">
+        <div className="pointer-events-none absolute bottom-0 right-0 z-10 hidden w-[300px] opacity-90 md:block md:w-[400px]">
           <img src={RumahGadangKiri} alt="Rumah Gadang" className="h-auto w-full" />
         </div>
       </div>
@@ -60,12 +59,18 @@ const IntroduceSection = () => {
         {introduceCards.map((card, index) => (
           <div
             key={index}
-            className="flex h-[120px] w-[120px] cursor-default flex-col items-center justify-center rounded-xl bg-white bg-opacity-60 p-4 text-center shadow-lg hover:bg-[#fbd600] hover:bg-opacity-70 hover:shadow-2xl md:h-[200px] md:w-[200px]"
+            className="group relative flex h-[120px] w-[120px] cursor-default flex-col items-center justify-center rounded-xl bg-white bg-opacity-60 p-4 text-center opacity-90 shadow-lg hover:shadow-2xl md:h-[200px] md:w-[200px]"
           >
-            <span className="text-3xl md:text-7xl">{card.icon}</span>
-            <h3 className="mt-2 text-sm font-semibold text-black md:mt-4 md:text-xl">
-              {card.title}
-            </h3>
+            {/* Glowing border layer */}
+            <div className="group-hover:animate-glowBorder absolute inset-0 -z-10 rounded-xl bg-gradient-to-r from-[#fbd600] via-red-500 to-[#fbd600] bg-[length:200%_200%] p-[2px] opacity-80 blur-sm"></div>
+
+            {/* Content */}
+            <div className="opacity-100">
+              <span className="text-3xl md:text-7xl">{card.icon}</span>
+              <h3 className="mt-2 text-sm font-semibold text-black md:mt-4 md:text-xl">
+                {card.title}
+              </h3>
+            </div>
           </div>
         ))}
       </div>
