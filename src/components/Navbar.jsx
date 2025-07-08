@@ -186,8 +186,8 @@ const MobileNavbar = ({ navigation, location, theme }) => {
             <Link
               to={item.href}
               className={classNames(
-                item.current && 'font-bold',
-                'block rounded-md px-4 py-2 font-heading text-sm text-white transition hover:bg-[#014f30]'
+                item.current && 'bg-[#014f30] font-bold',
+                'transitio block rounded-md px-4 py-2 font-heading text-sm text-white'
               )}
               aria-current={item.current ? 'page' : undefined}
               onClick={() => setIsOpen(false)}

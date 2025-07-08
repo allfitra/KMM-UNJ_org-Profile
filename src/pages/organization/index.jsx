@@ -20,7 +20,7 @@ export const OrganizationPage = () => {
 const OnGoing = () => {
   return (
     <div className="flex items-center justify-center">
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center text-center">
         <svg
           className="h-16 w-16 animate-spin text-emerald-700"
           xmlns="http://www.w3.org/2000/svg"
@@ -41,11 +41,13 @@ const OnGoing = () => {
             d="M12 2a10 10 0 00-3.516.648l1.243 3.32A6 6 0 0118 12h4a10 10 0 00-10-10z"
           />
         </svg>
-        <h1 className="mt-10 text-2xl font-bold text-[#01663f]">Sedang dalam pengembangan</h1>
+        <h1 className="mt-10 text-xl font-bold text-[#01663f] md:text-2xl">
+          Sedang dalam pengembangan
+        </h1>
         <p className="mt-2 text-lg text-[#01663f]">
           Mohon maaf, halaman ini masih dalam pengembangan.
         </p>
-        <p className="text-lg text-[#01663f]">Silakan kunjungi kembali nanti.</p>
+        <p className="mt-5 text-lg text-[#01663f]">Silakan kunjungi kembali nanti. 😊</p>
       </div>
     </div>
   );
